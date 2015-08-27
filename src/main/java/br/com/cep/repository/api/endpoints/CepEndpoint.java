@@ -41,7 +41,7 @@ public class CepEndpoint {
     public Response get(@PathParam("cep") String cep){
         cep = cep.replace("-", "");
 
-        if(cepValidator.isValid(cep)){
+        if(cepValidator.isInvalid(cep)){
             return status(400)
                         .entity(newEnvelop()
                                 .error(new Envelop.ErrorMessage("CEP inválido"))

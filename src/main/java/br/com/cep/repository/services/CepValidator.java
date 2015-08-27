@@ -7,7 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
  */
 @ApplicationScoped
 public class CepValidator {
-    public boolean isValid(String cep){
+    public boolean isInvalid(String cep){
         return ("".equals(cep) || cep == null || cep.length() != 8);
     }
 }
