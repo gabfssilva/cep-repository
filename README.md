@@ -1,28 +1,38 @@
 # cep-repository
 
 JDK version: 1.8
+
 Build tool: Gradle
 
 Container: Undertow
+
 Frameworks: JAX-RS (Jersey), CDI (Weld)
 
 ##Iniciando a aplicação sem gerar binário
+```
 ./gradlew run
+```
 
 ##Gerando o binário
+```
 ./gradlew distTar
+```
 
 Após realizar o comando, o tar estará disponível em:
 
+```
 cep-repository
     - build
         - distributions
             - cep-repository.tar
 
+```
 
 Para iniciar em background:
+```
 tar -xvf cep-repository.tar
 nohup cep-repository/bin/cep-repository &
+```
 
 ##Entendendo a API
 
@@ -36,7 +46,7 @@ http://localhost:8080/cep-repository/api/v1/cep/01304000
 {
   "item": {
     "cep": "01304000",
-    "logradouro": "Rua Augusta",
+    "logradouro": "Rua Auguta",
     "bairro": "Consolação",
     "cidade": "São Paulo",
     "uf": "SP"
