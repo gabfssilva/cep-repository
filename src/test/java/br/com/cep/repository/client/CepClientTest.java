@@ -1,6 +1,5 @@
 package br.com.cep.repository.client;
 
-import br.com.cep.repository.MockProducer;
 import br.com.cep.repository.client.resources.Cep;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
@@ -8,13 +7,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
-import javax.inject.Named;
 
 import java.io.IOException;
 import java.io.InputStream;
