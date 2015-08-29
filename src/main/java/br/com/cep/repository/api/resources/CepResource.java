@@ -58,7 +58,7 @@ public class CepResource {
         this.uf = uf;
     }
 
-    public static Builder newBuilder() {
+    public static Builder newCepResource() {
         return new Builder();
     }
 

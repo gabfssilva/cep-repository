@@ -1,7 +1,9 @@
 package br.com.cep.repository.api.endpoints;
 
 import br.com.cep.repository.api.converters.CepConverter;
-import br.com.cep.repository.api.model.Envelop;
+import br.com.cep.repository.api.resources.Envelop;
+import br.com.cep.repository.client.resources.Cep;
+import br.com.cep.repository.interceptors.Log;
 import br.com.cep.repository.services.CepService;
 import br.com.cep.repository.services.CepValidator;
 
@@ -11,12 +13,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Map;
 
-import static br.com.cep.repository.api.model.Envelop.newEnvelop;
+import static br.com.cep.repository.api.resources.Envelop.newEnvelop;
 import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 
@@ -26,6 +25,7 @@ import static javax.ws.rs.core.Response.status;
 @ApplicationScoped
 @Path("/v1/cep")
 @Produces("application/json")
+@Log
 public class CepEndpoint {
     @Inject
     private CepService cepService;
@@ -49,7 +49,7 @@ public class CepEndpoint {
                     .build();
         }
 
-        final Map<String, Object> closestCep = cepService.findClosestCep(cep); //poderia haver alguma lógica para se caso não haja o cep buscado, retorne um 303 com o mais próximo
+        final Cep closestCep = cepService.findClosestCep(cep); //poderia haver alguma lógica para se caso não haja o cep buscado, retorne um 303 com o mais próximo
 
         if(closestCep == null){
             return status(404)
@@ -62,6 +62,6 @@ public class CepEndpoint {
         return ok(newEnvelop()
                         .item(cepConverter.convert(closestCep))
                         .build())
-                .build();
+                    .build();
     }
 }

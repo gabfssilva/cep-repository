@@ -1,6 +1,10 @@
 # cep-repository
 
 JDK version: 1.8
+Build tool: Gradle
+
+Container: Undertow
+Frameworks: JAX-RS (Jersey), CDI (Weld)
 
 ##Iniciando a aplicação sem gerar binário
 ./gradlew run
