@@ -41,7 +41,8 @@ http://localhost:8080/cep-repository/api/v1/cep/01304000
     "cidade": "São Paulo",
     "uf": "SP"
   }
-}```
+}
+```
 
 > Caso o CEP seja inválido, será retornado um 400 (bad request)
 
@@ -64,7 +65,8 @@ http://localhost:8080/cep-repository/api/v1/cep/01304000
     "cidade": "Muliterno",
     "uf": "RS"
   }
-}```
+}
+```
 
 
 > Caso não exista nenhum CEP próximo da localidade, será retornado um http status igual a 404.
