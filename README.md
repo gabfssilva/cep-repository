@@ -64,7 +64,7 @@ http://localhost:8080/cep-repository/api/v1/cep/01304000
 }
 ```
 
-> Caso não exista, o sistema tentará procurar o CEP mais próximo da sua localidade. Exemplo: se você buscou 99999999 e o CEP não existir, ele irá tentar buscar 99999990, trocando sempre o último número por zeros até achar alguma endereço existente.
+> Caso não exista, o sistema tentará procurar o CEP mais próximo da sua localidade. Exemplo: se você buscou 99999999 e o CEP não existir, ele irá tentar buscar 99999990, trocando sempre o último número por zeros até achar algum endereço existente.
 
 ```
 {
