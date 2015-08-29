@@ -1,4 +1,4 @@
-package br.com.cep.repository.api.model;
+package br.com.cep.repository.api.resources;
 
 /**
  * @author Gabriel Francisco - gabfssilva@gmail.com
@@ -56,6 +56,13 @@ public class Envelop {
         public void setMessage(String message) {
             this.message = message;
         }
+
+        @Override
+        public String toString() {
+            return "ErrorMessage{" +
+                    "message='" + message + '\'' +
+                    '}';
+        }
     }
 
     public static final class Builder {
@@ -84,5 +91,14 @@ public class Envelop {
         public Envelop build() {
             return new Envelop(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Envelop{" +
+                "uri='" + uri + '\'' +
+                ", item=" + item +
+                ", error=" + error +
+                '}';
     }
 }

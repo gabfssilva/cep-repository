@@ -1,24 +1,27 @@
 package br.com.cep.repository.api.converters;
 
-import br.com.cep.repository.api.model.Cep;
+import br.com.cep.repository.api.resources.CepResource;
+import br.com.cep.repository.client.resources.Cep;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.util.Map;
+
+import static br.com.cep.repository.api.resources.CepResource.newCepResource;
 
 /**
  * @author Gabriel Francisco - gabfssilva@gmail.com
  */
 @ApplicationScoped
-public class CepConverter implements Converter<Map<String, Object>, Cep> {
+public class CepConverter implements Converter<Cep, CepResource> {
     @Override
-    public Cep convert(Map<String, Object> obj) {
-        return Cep.newBuilder()
-                    .bairro((String) obj.get("bairro"))
-                    .cep((String) obj.get("cep"))
-                    .cidade((String) obj.get("localidade"))
-                    .complemento((String) obj.get("complemento"))
-                    .uf((String) obj.get("uf"))
-                    .logradouro((String) obj.get("logradouro"))
+    public CepResource convert(Cep cep) {
+        final String logradouro = cep.getTipoLogradouro() == null ? cep.getLogradouro() : cep.getTipoLogradouro() + " " + cep.getLogradouro();
+
+        return newCepResource()
+                    .bairro(cep.getBairro())
+                    .cep(cep.getCep())
+                    .cidade(cep.getCidade())
+                    .uf(cep.getUf())
+                    .logradouro(logradouro)
                 .build();
     }
 }

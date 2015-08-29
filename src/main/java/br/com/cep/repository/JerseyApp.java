@@ -10,6 +10,6 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("/api/*")
 public class JerseyApp extends ResourceConfig {
     public JerseyApp() {
-        packages(true, "br.com.cep.repository.api");
+        packages(true, "br.com.cep.repository");
     }
 }

@@ -26,7 +26,7 @@ public class ApplicationProducer {
     @Produces
     @Named("cepUrl")
     public String cepUrl() {
-        return "http://viacep.com.br/ws/";
+        return "http://cep.republicavirtual.com.br/web_cep.php";
     }
 
     @Produces //não pode ser application scoped porque a classe possui métodos final

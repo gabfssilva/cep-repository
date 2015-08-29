@@ -18,7 +18,17 @@ import static io.undertow.servlet.Servlets.servlet;
  * @author Gabriel Francisco - gabfssilva@gmail.com
  */
 public class Application {
+    private static Undertow server;
+
     public static void main(String[] args) throws ServletException {
+        startContainer();
+    }
+
+    public static void stopContainer(){
+        server.stop();
+    }
+
+    public static void startContainer() throws ServletException {
         DeploymentInfo servletBuilder = Servlets.deployment();
 
         servletBuilder
@@ -36,9 +46,11 @@ public class Application {
         PathHandler path = Handlers.path(Handlers.redirect("/cep-repository"))
                 .addPrefixPath("/cep-repository", manager.start());
 
-        Undertow server = Undertow.builder()
-                .addHttpListener(8080, "localhost")
-                .setHandler(path)
+        server =
+                Undertow
+                    .builder()
+                    .addHttpListener(8080, "localhost")
+                    .setHandler(path)
                 .build();
 
         server.start();

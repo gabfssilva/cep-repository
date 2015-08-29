@@ -1,20 +1,18 @@
-package br.com.cep.repository.api.model;
+package br.com.cep.repository.api.resources;
 
 /**
  * @author Gabriel Francisco - gabfssilva@gmail.com
  */
-public class Cep {
+public class CepResource {
     private String cep;
     private String logradouro;
-    private String complemento;
     private String bairro;
     private String cidade;
     private String uf;
 
-    private Cep(Builder builder) {
+    private CepResource(Builder builder) {
         cep = builder.cep;
         logradouro = builder.logradouro;
-        complemento = builder.complemento;
         bairro = builder.bairro;
         cidade = builder.cidade;
         uf = builder.uf;
@@ -34,14 +32,6 @@ public class Cep {
 
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
     }
 
     public String getBairro() {
@@ -113,8 +103,19 @@ public class Cep {
             return this;
         }
 
-        public Cep build() {
-            return new Cep(this);
+        public CepResource build() {
+            return new CepResource(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Cep{" +
+                "cep='" + cep + '\'' +
+                ", logradouro='" + logradouro + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", cidade='" + cidade + '\'' +
+                ", uf='" + uf + '\'' +
+                '}';
     }
 }

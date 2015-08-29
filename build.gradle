@@ -8,7 +8,7 @@ repositories {
     jcenter()
 }
 
-mainClassName = 'br.com.cep.repositor.Application'
+mainClassName = 'br.com.cep.repository.Application'
 
 distTar {
     archiveName = 'cep-repository.tar'
@@ -35,11 +35,15 @@ dependencies {
     compile 'org.jboss.weld:weld-core:2.2.14.Final'
     compile group: 'org.jboss.weld.servlet', name: 'weld-servlet-core', version: '2.2.14.Final'
 
-    compile 'org.glassfish:javax.json:1.0.4'
-
     compile 'com.fasterxml.jackson.core:jackson-core:2.6.1'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.6.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
 
+    compile 'org.slf4j:slf4j-api:1.7.12'
+    compile 'org.slf4j:slf4j-log4j12:1.7.12'
+    compile 'log4j:log4j:1.2.17'
+
+    testCompile 'com.jayway.restassured:rest-assured:2.5.0'
+    testCompile 'org.mockito:mockito-all:1.10.19'
     testCompile "junit:junit:4.11"
 }
