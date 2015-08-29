@@ -11,7 +11,7 @@ Frameworks: JAX-RS (Jersey), CDI (Weld)
 ##Iniciando a aplicação sem gerar binário
 ```
 ./gradlew run
-```
+``
 
 ##Gerando o binário
 ```
@@ -84,7 +84,7 @@ http://localhost:8080/cep-repository/api/v1/cep/01304000
 ```
 {
   "error": {
-    "message": "CEP nÃ£o encontrado"
+    "message": "CEP não encontrado"
   }
 }
 ```
